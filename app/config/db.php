@@ -2,7 +2,7 @@
 return [
     'provider' => 'pgsql',
     'hostname' => 'localhost',
-    'database' => 'mvc_fs01009',
+    'database' => 'engine',
     'username' => 'postgres',
     'password' => '',
 ];
