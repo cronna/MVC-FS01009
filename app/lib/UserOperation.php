@@ -30,6 +30,10 @@ class UserOperation
             'title' => "Новости",
             'link' => "/news/list"
         ];
+        $list[] = [
+            'title' => 'каналы',
+            'link' => '/user/chanels'
+        ];
 
         if ($role === self::RoleAdmin) {
             $list[] = [

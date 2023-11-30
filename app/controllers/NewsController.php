@@ -20,7 +20,7 @@ class NewsController extends InitController
                         }    
                     ],
                     [
-                        'actions' => ['add'],
+                        'actions' => ['add', 'edit', 'delete'],
                         'roles' => [UserOperation::RoleAdmin],
                         'matchCallback' => function() {
                             $this->redirect('/user/list');
@@ -29,6 +29,82 @@ class NewsController extends InitController
                 ]
             ]
         ];
+    }
+
+    public function actionEdit()
+    {
+        $this->view->title = 'редактирование новости';
+
+        $news_id = !empty($_GET['news_id']) ? $_GET['news_id'] : null;
+        $news = null;
+        $error_message = '';
+
+        if(!empty($news_id)){
+            $newsModel = new NewsModel();
+            $news = $newsModel->getNewsById($news_id);
+
+            if(empty($news)){
+                $error_message .= 'новость не найдена<br>';
+            }
+        }else{
+            $error_message .= 'нет такого id<br>';
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['btn_news_edit_form'])){
+            $news_data = !empty($_POST['news']) ? $_POST['news'] : null;
+
+            if(!empty($news_data)){
+                $newsModel = new NewsModel();
+                $result_edit = $newsModel->edit($news_id, $news_data);
+
+                if($result_edit['result']){
+                    $this->redirect("/news/list");
+                }else{
+                    $error_message .= $result_edit['error_message'];
+                }
+            }
+        }
+
+
+        $this->render('edit', [
+            'sidebar' => UserOperation::getMenuLink(),
+            'error_message' => $error_message,
+            'news' => $news
+        ]);
+    }
+
+    public function actionDelete()
+    {
+        $this->view->title = 'удаление новости';
+        $news_id = !empty($_GET['news_id']) ? $_GET['news_id'] : null;
+        $news = null;
+        $error_message = '';
+
+        if(!empty($news_id)){
+            $newsModel = new NewsModel();
+            $news = $newsModel->getNewsById($news_id);
+
+            if(!empty($news)){
+                $result_delete = $newsModel->deleteById($news_id);
+
+                if ($result_delete['result']){
+                    $this->redirect("/news/list");
+                }else{
+                    $result_delete['error_message'];
+                }
+                
+            }else{
+                $error_message = "новость не найдена";
+            }
+        }else{
+            $error_message .= 'нет такого id<br>';
+        }
+
+        $this->render('delete', [
+            'sidebar' => UserOperation::getMenuLink(),
+            'error_message' => $error_message,
+            'news' => $news
+        ]);
     }
 
     public function actionList()

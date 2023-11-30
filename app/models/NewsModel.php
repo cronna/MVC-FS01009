@@ -52,4 +52,78 @@ class NewsModel extends BaseModel
 
         return $result;
     }
+
+    public function getNewsById($id)
+    {
+        $result = null;
+        $news = $this->select("SELECT * FROM news WHERE id = :id", [
+            'id' => $id
+        ]);
+
+        if(!empty($news[0])){
+            $result = $news[0];
+        }
+
+        return $result;
+    }
+
+    public function edit($id, $news_data)
+    {
+        $result = false;
+        $error_message = '';
+
+        if(empty($id)){
+            $error_message .= 'нет такого id<br>';
+        }
+        if(empty($news_data['title'])){
+            $error_message .= 'заголовок забыл, гений';
+        }
+        if(empty($news_data['short_description'])){
+            $error_message .= 'краткое описание забыл, гений';
+        }
+        if(empty($news_data['description'])){
+            $error_message .= 'описание забыл, гений';
+        }
+
+        if(empty($error_message)){
+            $result = $this->update(
+                "UPDATE news SET title = :title, 
+                short_description = :short_description, description = :description
+                WHERE id = :id",
+                [
+                    'title' => $news_data['title'],
+                    'short_description' => $news_data['short_description'],
+                    'description' => $news_data['description'],
+                    'id' => $id
+                ]
+            );
+        }
+
+        return [
+            'result' => $result,
+            'error_message' => $error_message
+        ];
+
+    }
+    public function deleteById($id)
+    {
+        $result = false;
+        $error_message = '';
+
+        if(empty($id)){
+            $error_message .= 'нет такого id<br>';
+        }
+
+        if(empty($error_message)){
+            $result = $this->delete("DELETE FROM news WHERE id = :id", 
+            [
+                'id' => $id
+            ]);
+        }
+
+        return [
+            'result' => $result,
+            'error_message' => $error_message
+        ];
+    }
 }

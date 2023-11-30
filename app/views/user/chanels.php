@@ -24,7 +24,7 @@ use app\lib\UserOperation;
             </div>
             <div class="cabinet_content">
                 <dib class="page-content-inner">
-                    <h2>Новости</h2>
+                    <h2>каналы</h2>
                     <div class="news-block">
                         <div class="links_box text-end">
                             <a href="/news/add">Добавить</a>
