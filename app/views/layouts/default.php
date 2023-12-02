@@ -15,7 +15,7 @@
     <title><?= $this->title ?></title>
 </head>
 <body>
-<?= $content ?>
+    <?= $content ?>
 </body>
 </html>
 

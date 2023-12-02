@@ -23,17 +23,22 @@ class UserOperation
     {
         $role = self::getRoleUser();
         $list[] = [
-            'title' => "Мой профиль",
+            'title' => "главная",
             'link' => "/user/profile"
         ];
         $list[] = [
-            'title' => "Новости",
+            'title' => "сеансы",
             'link' => "/news/list"
         ];
         $list[] = [
-            'title' => 'каналы',
+            'title' => 'новости',
             'link' => '/user/chanels'
         ];
+        $list[] = [
+            'title' => 'о нас',
+            'link' => '/main/about'
+        ];
+
 
         if ($role === self::RoleAdmin) {
             $list[] = [
@@ -41,11 +46,6 @@ class UserOperation
                 'link' => "/user/users"
             ];
         }
-
-        $list[] = [
-            'title' => "Выход",
-            'link' => "/user/logout"
-        ];
 
         return $list;
     }

@@ -1,14 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+
+
 * {
     box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    transition: all 0.3s;
+    background: rgb(17,24,39);
+    font-family: 'Jost', sans-serif;
+    text-decoration: none;
+    color: white;
+}
+body{
+    background: rgb(17,24,39);
+}
+.main-content{
+    margin-top: 30px;
+    background: rgb(31,41,55);
+    padding: 15px;
+    border-radius: 10px;
+}
+.main-content > * {
+    background: none;
+}
+pre{
+    font-size: 18px;
+
+}
+.container{
+    width: 1400px;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+header{
+    background: rgb(31,41,55);  
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    background: rgb(31,41,55);
+    height: 70px;
+}
+header .container > * {
+    background: none;
+    margin: auto 0;
+}
+.logo{
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+}
+.logo:hover{
+    color: white;
+}
+.search-form{
+    margin: auto 0;
+    width: 350px;
+    height: 45px;
+    background: rgb(31,41,55);
+}
+.search-form input{
+    position: relative;
+    background: rgb(17,24,39);
+    width: 100%;
+    height: 85%;
+    margin: auto 0;
+    border: none;
+    border-radius: 10px;
+    padding-left: 40px;
     outline: none;
+    color: white;
+    font-size: 18px;
+    margin-top: 3px;
+}
+.search-button {
+    position: absolute;
+    margin-left: -337px;
+    margin-top: 8px;
+    background: none;
+    border: none;
+}
+.search-button svg{
+    fill: grey;
+    background: none;
+
 }
 
-html {
-    font-family: "Times New Roman", sans-serif;
-    font-size: 16px;
-    line-height: 18px;
+.account {
+    margin-top: 15px ;
+    background: rgb(31,41,55);
+    padding-right: 5px;
+}
+.account svg {
+    background: rgb(31,41,55);
+    width: 30px;
+    fill: white;
+    transition: .1s;
+}
+.account svg:hover{
+    fill: rgb(30, 30, 255);
+}
+nav {
+    background: rgb(31,41,55);
+    margin: auto 0;
+    display: flex;
+    gap: 30px;
+}
+nav a{
+    background: rgb(31,41,55);
+    transition: all 0.3s;
+    font-size: 21px;
+}
+nav a:hover{
+    color: rgb(30, 30, 255);
 }
 
 textarea{
@@ -30,11 +138,15 @@ textarea{
 }
 
 .page .title {
-    color: black;
+    color: white;
     font-size: 26px;
     line-height: 28px;
     text-align: center;
 }
+.log-label{
+    color: white;
+}
+
 
 .auth_form {
     padding: 17px 12px;
@@ -50,6 +162,21 @@ textarea{
     line-height: 20px;
     padding-bottom: 5px;
     width: 100%;
+}
+.input_box input{
+    background:rgb(31,41,55);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 18px;
+    padding-left: 10px;
+    height: 45px;
+    width: 100%;
+}
+
+.input_box input::after{
+    background: rgb(31,41,55);
 }
 
 .input_box .form-control {
@@ -67,112 +194,94 @@ textarea{
     line-height: 20px;
     padding: 6px;
     width: 100%;
+    background: rgb(30, 30, 255);
+    border: none;
 }
 
 .links_box {
     padding-bottom: 17px;
-}
-
-/*cabinet*/
-.cabinet_wrapped {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 30px 0 50px;
-}
-
-.cabinet_wrapped .cabinet_sidebar {
-    width: 240px;
-}
-
-.cabinet_wrapped .cabinet_content {
-    width: 765px;
-}
-
-.cabinet_sidebar .menu_box {
-    border: 3px solid #002360;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 15px 10px 20px 15px;
-}
-
-.menu_box ul {
-    list-style: none;
-}
-
-.menu_box ul li {
     font-size: 18px;
-    line-height: 22px;
-    padding: 12px 0 0;
 }
 
-.menu_box ul li:first-child {
-    padding: 0;
+.content-header h2{
+    background: none;
+    font-size: 30px;
+    font-weight: 700;
 }
-
-.menu_box ul li a {
-    color: #002360;
-    text-decoration: none;
+.m-c-content{
+    background: none;
+    margin-top: 20px
 }
-
-.menu_box ul li a:hover {
-    text-decoration: underline;
+.s-items{
+    background: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: none;
 }
-
-.page-content-inner{
-    display: block;
-    border: 3px solid #002360;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 12px 15px;
-}
-
-.page-content-inner h2 {
-    color: #3a4156;
-    font-size: 24px;
-    line-height: 26px;
-    text-align: center;
-}
-/*cabinet*/
-
-/*profile*/
-.profile-block .profile-item {
-    max-width: 100%;
-    width: 48%;
-}
-
-.profile-block .profile-item .profile-item_title{
-    display: block;
-    font-size: 20px;
-    line-height: 24px;
-    padding-bottom: 15px;
-    text-align: center;
+.s-i-row{
+    display: flex;
+    justify-content: space-between;
+    background: none;
     width: 100%;
 }
-/*profile*/
-
-/*news*/
-
-.news-item{
-    border-bottom: 1px solid gray;
-    margin-bottom: 15px;
+.s-item{
+    background: none;
+    margin-top: 5px;
 }
-
-.news-item h3 {
+.s-item:hover{
+    margin: 0;
+}
+.s-item > *{
+    background: none;
+}
+.s-item img{
+    position: relative;
+    height: 380px;
+    border-radius: 10px;
+}
+.s-item .time{
+    position: absolute;
+    z-index: 100;
+    background: rgba(31, 41, 55, 0.604);
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.s-item .cens{
+    position: absolute;
+    z-index: 100;
+    background: rgba(31, 41, 55, 0.605);
+    border-radius: 3px;
+    margin-top: 11px;
+    margin-left: 250px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.s-item .item-content{
+    position: absolute;
+    background: rgba(31, 41, 55, 0.938);
+    border-radius: 7px;
+    margin-top: -66px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    width: 295px;
+    text-align: center;
+}
+.s-item .item-content > * {
+    background: none;
+}
+.s-item .item-content span{
     font-size: 20px;
-    line-height: 24px;
+}
+.s-item .item-content h3{
+    margin-bottom: 0;
 }
 
-.news-item h3 span{
-    font-size: 16px;
-    line-height: 18px;
-}
 
-.news-item .news-short_description {
-    color: gray;
-    font-size: 16px;
-    line-height: 18px;
-    padding-bottom: 8px;
-}
 
-/*news*/
+
+

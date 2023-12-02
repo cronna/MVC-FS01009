@@ -13,11 +13,10 @@
                     </div>
 
                     <div class="input_box">
-                        <label for="field_username">Имя</label>
+                        <label class="log-label" for="field_username">Имя</label>
                         <input type="text"
                                name="username"
                                id="field_username"
-                               class="form-control"
                                maxlength="120"
                                value="<?= !empty($_POST['username']) ? $_POST['username'] : '' ?>"
                                placeholder="Введите имя"
@@ -25,11 +24,10 @@
                     </div>
 
                     <div class="input_box">
-                        <label for="field_login">Логин</label>
+                        <label class="log-label" for="field_login">Логин</label>
                         <input type="text"
                                name="login"
                                id="field_login"
-                               class="form-control"
                                maxlength="24"
                                value="<?= !empty($_POST['login']) ? $_POST['login'] : '' ?>"
                                placeholder="Введите логин"
@@ -37,21 +35,19 @@
                     </div>
 
                     <div class="input_box">
-                        <label for="field_password">Пароль</label>
+                        <label class="log-label" for="field_password">Пароль</label>
                         <input type="password"
                                name="password"
                                id="field_password"
-                               class="form-control"
                                placeholder="Введите пароль"
                         >
                     </div>
 
                     <div class="input_box">
-                        <label for="field_confirm_password">Повторите пароль</label>
+                        <label class="log-label" for="field_confirm_password">Повторите пароль</label>
                         <input type="password"
                                name="confirm_password"
                                id="field_confirm_password"
-                               class="form-control"
                                placeholder="Повторите пароль"
                         >
                     </div>
