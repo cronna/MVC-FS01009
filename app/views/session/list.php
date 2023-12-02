@@ -1,7 +1,7 @@
 <?php
 /** @var array $sidebar - Меню */
 /** @var string $role - Список новостей */
-/** @var array $news - Роль пользователя */
+/** @var array $session - Роль пользователя */
 
 use app\lib\UserOperation;
 
@@ -27,18 +27,21 @@ use app\lib\UserOperation;
     <div class="main-content">
         <div class="content-header">
             <h2>сегодня</h2>
-            <div class="m-c-content">
+            <a href="/session/add">добавить</a>
+        </div>
+        <div class="m-c-content">
+            <?php if(!empty($session)): ?>
                 <div class="s-items">
-                    <?php foreach($news as $item){ ?>
+                    <?php foreach($session as $item){ ?>
                         <a href="" class="n-item">
                             <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_6568c3f024c97f15f649aca1_6568c50cf6adc66bb9be86e1/scale_1200" alt="">
                             <div class="title"><?= $item['title'] ?> </div>
-                            <div class="s-desc"><?= $item['short_description'] ?></div>
-                            <div class="date"><?= date('j F',strtotime($item['date_create']))?></div>
+                            <div class="s-desc"><?= $item['genre'] ?></div>
+                            <div class="date"><?= date('j F',strtotime($item['date']))?></div>
                         </a>
                     <?php } ?>
                 </div>
+                <?php endif ?>
             </div>
-        </div>
     </div>
 </section>

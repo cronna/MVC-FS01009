@@ -28,7 +28,7 @@ class UserOperation
         ];
         $list[] = [
             'title' => "сеансы",
-            'link' => "/news/list"
+            'link' => "/session/list"
         ];
         $list[] = [
             'title' => 'новости',

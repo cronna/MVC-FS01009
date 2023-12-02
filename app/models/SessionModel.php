@@ -4,33 +4,32 @@ namespace app\models;
 
 use app\core\BaseModel;
 
-class NewsModel extends BaseModel
+class SessionModel extends BaseModel
 {
-    public function add($news_data)
+    public function add($session_data)
     {
         $result = false;
         $error_message = '';
 
-        if(empty($news_data['title'])){
+        if(empty($session_data['title'])){
             $error_message .= 'придумай название ленивая жопа<br>';
         }
 
-        if(empty($news_data['short_description'])){
+        if(empty($session_data['date'])){
             $error_message .= 'ты забыл написать краткое описание или спецом его пропустил? <br>';
         }
 
-        if(empty($news_data['description'])){
+        if(empty($session_data['genre'])){
             $error_message .= 'далеко без описания собрался?<br>';
         }
 
         if(empty($error_message)){
-            $result = $this->insert("INSERT INTO news (title, short_description, description, date_create, user_id) 
-                VALUES (:title, :short_description, :description, NOW(), :user_id)", 
+            $result = $this->insert("INSERT INTO sessions (title, genre, date) 
+                VALUES (:title, :genre, :date)", 
                 [
-                    'title' => $news_data['title'],
-                    'short_description' => $news_data['short_description'],
-                    'description' => $news_data['description'],
-                    'user_id' => $_SESSION['user']['id']
+                    'title' => $session_data['title'],
+                    'genre' => $session_data['genre'],
+                    'date' => $session_data['date'],
                 ]
             );
         }
@@ -41,33 +40,33 @@ class NewsModel extends BaseModel
         ];
     }
 
-    public function getListNews()
+    public function getListSession()
     {
         $result = 0;
-        $news = $this->select("SELECT * FROM news");
+        $session = $this->select("SELECT * FROM sessions");
 
-        if(!empty($news)){
-            $result = $news;
+        if(!empty($session)){
+            $result = $session;
         }
 
         return $result;
     }
 
-    public function getNewsById($id)
+    public function getSessionById($id)
     {
         $result = null;
-        $news = $this->select("SELECT * FROM news WHERE id = :id", [
+        $session = $this->select("SELECT * FROM sessions WHERE id = :id", [
             'id' => $id
         ]);
 
-        if(!empty($news[0])){
-            $result = $news[0];
+        if(!empty($session[0])){
+            $result = $session[0];
         }
 
         return $result;
     }
 
-    public function edit($id, $news_data)
+    public function edit($id, $session_data)
     {
         $result = false;
         $error_message = '';
@@ -75,25 +74,25 @@ class NewsModel extends BaseModel
         if(empty($id)){
             $error_message .= 'нет такого id<br>';
         }
-        if(empty($news_data['title'])){
+        if(empty($session_data['title'])){
             $error_message .= 'заголовок забыл, гений';
         }
-        if(empty($news_data['short_description'])){
+        if(empty($session_data['genre'])){
             $error_message .= 'краткое описание забыл, гений';
         }
-        if(empty($news_data['description'])){
+        if(empty($session_data['date'])){
             $error_message .= 'описание забыл, гений';
         }
 
         if(empty($error_message)){
             $result = $this->update(
-                "UPDATE news SET title = :title, 
-                short_description = :short_description, description = :description
+                "UPDATE sessions SET title = :title, 
+                genre = :genre, description = :description, date = :date
                 WHERE id = :id",
                 [
-                    'title' => $news_data['title'],
-                    'short_description' => $news_data['short_description'],
-                    'description' => $news_data['description'],
+                    'title' => $session_data['title'],
+                    'genre' => $session_data['genre'],
+                    'date' => $session_data['date'],
                     'id' => $id
                 ]
             );
@@ -115,7 +114,7 @@ class NewsModel extends BaseModel
         }
 
         if(empty($error_message)){
-            $result = $this->delete("DELETE FROM news WHERE id = :id", 
+            $result = $this->delete("DELETE FROM sessions WHERE id = :id", 
             [
                 'id' => $id
             ]);
@@ -125,5 +124,5 @@ class NewsModel extends BaseModel
             'result' => $result,
             'error_message' => $error_message
         ];
-    } 
+    }
 }
