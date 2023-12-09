@@ -30,6 +30,7 @@ use app\lib\UserOperation;
         <div class="alert alert-danger <?= !empty($error_message) ? null : 'hidden' ?>">
             <?= !empty($error_message) ? $error_message : null ?>
         </div>
+
         <div class="name-img">
             <div class="input_box">
             <label for="field_title">название фильма:</label>
@@ -54,41 +55,28 @@ use app\lib\UserOperation;
                         ? $_POST['session']['desc']
                         : ''
                     ?>"
-                    placeholder="max: 300"
+                    placeholder="будет показано только в лене статей. max: 200"
                     cols="20" rows="4"
                     required
             ></textarea>
         </div>
-        <div class="date-time">
-            <div class="input_box">
-                <label for="field_short_description">дата:</label>
-                <input type="date"
-                        name="session[date]"
-                        id="field_short_description"
-                        class="form-control date"
-                        maxlength="120"
-                        value="<?=date('Y-m-d') ?>"
-                        placeholder="Введите краткое описание"
-                        required
-                >
-            </div>
-            <div class="input_box">
-                <label for="field_short_description">время начала:</label>
-                <input type="time"
-                        name="session[start_time]"
-                        id="field_short_description"
-                        class="form-control time"
-                        maxlength="120"
-                        value="<?= !empty($_POST['session']['start_time'])
-                            ? $_POST['session']['start_time']
-                            : ''
-                        ?>"
-                        placeholder="Введите краткое описание"
-                        required
-                >
-            </div>
-            <input id="img" type="file" name="img" class="file_input" required>
+        <div class="input_box">
+            <label for="field_short_description">:</label>
+            <textarea name="session[desc]"
+                    id="field_short_description"
+                    maxlength="300"
+                    minlength="30"
+                    value="<?= !empty($_POST['session']['desc'])
+                        ? $_POST['session']['desc']
+                        : ''
+                    ?>"
+                    placeholder="будет показано только в лене статей. max: 200"
+                    cols="20" rows="4"
+                    required
+            ></textarea>
         </div>
+            
+        <input id="img" type="file" name="img" class="file_input" required>
         <div class="button_box">
         <button type="submit"
                 name="btn_session_add_form"

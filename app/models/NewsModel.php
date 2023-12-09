@@ -102,6 +102,32 @@ class NewsModel extends BaseModel
         return $result;
     }
 
+    public function getChannelById($id){
+        $result = null;
+        $channel = $this->select("SELECT * FROM channels WHERE id = :id", [
+            'id' => $id
+        ]);
+
+        if(!empty($channel[0])){
+            $result = $channel[0];
+        }
+
+        return $result;
+    }
+
+    public function getChannelContent($id){
+        $result = null;
+        $channelContent = $this->select("SELECT * FROM posts WHERE channel_id = :id", [
+            'id' => $id
+        ]);
+
+        if(!empty($channelContent[0])){
+            $result = $channelContent[0];
+        }
+
+        return $result;
+    }
+
     public function edit($id, $news_data)
     {
         $result = false;

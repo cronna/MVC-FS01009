@@ -5,7 +5,7 @@ namespace app\controllers;
 use app\core\InitController;
 use app\lib\UserOperation;
 use app\models\NewsModel;
-class PostsController extends InitController
+class PapersController extends InitController
 {
     public function behaviors()
     {
@@ -37,7 +37,7 @@ class PostsController extends InitController
         $newsModel  = new NewsModel();
         $papers = $newsModel->getListPapers();
 
-        $this->render('/papers', [
+        $this->render('papers', [
             'sidebar' => UserOperation::getMenuLink(),
             'papers' => $papers,
             'role' => UserOperation:: getRoleUser()

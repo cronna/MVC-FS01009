@@ -24,7 +24,7 @@ use app\lib\UserOperation;
     </header>
 <?php endif; ?>
 <section class="container s-list-container">
-    <nav class='second-nav' style="height: 157px;">
+    <nav class='second-nav' style="height: 190px;">
         <?php $today = date('m.d') ?>
         <a class="sec-nav-a" href="/posts/list">лента</a>
         <a class="sec-nav-a" href="/paper/papers">статьи</a>
@@ -34,7 +34,8 @@ use app\lib\UserOperation;
     </div>
     <div class="main-content">
         <div class="content-header">
-            <h2>лента</h2>
+            <h2>каналы</h2>
+            <a href="/posts/add">мой канал</a>
         </div>
         <hr style="border: none; background:gray;">
         <div class="l-c-content">

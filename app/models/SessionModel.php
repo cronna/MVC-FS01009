@@ -13,13 +13,6 @@ class SessionModel extends BaseModel
         $error_message = '';
         $img = base64_encode($img);
 
-        if(empty($session_data['title'])){
-            $error_message .= 'придумай название ленивая жопа<br>';
-        }
-
-        if(empty($session_data['date'])){
-            $error_message .= 'ты забыл написать краткое описание или спецом его пропустил? <br>';
-        }
         if(empty($error_message)){
             $result = $this->insert("INSERT INTO sessions (title, s_desc, session_date, start_time, img) 
                 VALUES (:title, :s_desc, :session_date, :start_time, :img)", 
