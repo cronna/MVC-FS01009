@@ -24,15 +24,15 @@ class UserOperation
         $role = self::getRoleUser();
         $list[] = [
             'title' => "главная",
-            'link' => "/user/profile"
+            'link' => "/"
         ];
         $list[] = [
             'title' => "сеансы",
-            'link' => "/session/list"
+            'link' => "/session/today"
         ];
         $list[] = [
             'title' => 'новости',
-            'link' => '/user/chanels'
+            'link' => '/posts/list'
         ];
         $list[] = [
             'title' => 'о нас',

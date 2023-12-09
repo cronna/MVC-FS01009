@@ -53,6 +53,28 @@ class NewsModel extends BaseModel
         return $result;
     }
 
+    public function getListPapers(){
+        $result = 0;
+        $paper = $this->select("SELECT * FROM papers");
+
+        if(!empty($paper)){
+            $result = $paper;
+        }
+
+        return $result;
+    }
+
+    public function getListChannels(){
+        $result = 0;
+        $channels = $this->select("SELECT * FROM channels");
+
+        if(!empty($channels)){
+            $result = $channels;
+        }
+
+        return $result;
+    }
+
     public function getNewsById($id)
     {
         $result = null;
@@ -62,6 +84,19 @@ class NewsModel extends BaseModel
 
         if(!empty($news[0])){
             $result = $news[0];
+        }
+
+        return $result;
+    }
+
+    public function getPaperById($id){
+        $result = null;
+        $paper = $this->select("SELECT * FROM papers WHERE id = :id", [
+            'id' => $id
+        ]);
+
+        if(!empty($paper[0])){
+            $result = $paper[0];
         }
 
         return $result;

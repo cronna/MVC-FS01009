@@ -20,202 +20,15 @@ use app\lib\UserOperation;
         </section>
     </header>
 <?php endif; ?>
+<img class="banner" src="https://images.kinomax.ru/1980/b/30/595141_3069.webp" srcset="https://images.kinomax.ru/1980/b/30/595141_3069.webp 1x, https://images.kinomax.ru/2970/b/30/595141_3069.webp 2x" alt="" loading="lazy">
 <section class="container">
     <div class="main-content">
         <div class="content-header">
             <h2>сегодня</h2>
-            <div class="m-c-content">
+        </div>
+
+        <div class="m-c-content">
                 <div class="s-items">
-                    <div class="s-i-row">
-                    <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="s-i-row">
-                    <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="s-i-row">
-                    <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="s-i-row">
-                    <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="s-i-row">
-                    <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                        <a class="s-item">
-                            <div class="time">10:00 - 12:00</div>
-                            <div class="cens">16+</div>
-                            <div class="-YpCgdJUJ0FwbbMe9lBzag=="><img class="_6dkKTBFJ+dVkHEsHlKNkDg==" src="https://images.kinomax.ru/550/b/30/779864_3075.webp"></div>
-                            <div class="item-content">
-                                <h3>Слово Пацана</h3>
-                                <span>драма</span>
-                            </div>
-                        </a>
-                    </div>
                     <div class="s-i-row">
                     <a class="s-item">
                             <div class="time">10:00 - 12:00</div>
@@ -256,6 +69,5 @@ use app\lib\UserOperation;
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </section>

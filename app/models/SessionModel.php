@@ -3,13 +3,15 @@
 namespace app\models;
 
 use app\core\BaseModel;
+use ReturnTypeWillChange;
 
 class SessionModel extends BaseModel
 {
-    public function add($session_data)
+    public function add($session_data, $img)
     {
         $result = false;
         $error_message = '';
+        $img = base64_encode($img);
 
         if(empty($session_data['title'])){
             $error_message .= 'придумай название ленивая жопа<br>';
@@ -18,21 +20,21 @@ class SessionModel extends BaseModel
         if(empty($session_data['date'])){
             $error_message .= 'ты забыл написать краткое описание или спецом его пропустил? <br>';
         }
-
-        if(empty($session_data['genre'])){
-            $error_message .= 'далеко без описания собрался?<br>';
-        }
-
         if(empty($error_message)){
-            $result = $this->insert("INSERT INTO sessions (title, genre, date) 
-                VALUES (:title, :genre, :date)", 
+            $result = $this->insert("INSERT INTO sessions (title, s_desc, session_date, start_time, img) 
+                VALUES (:title, :s_desc, :session_date, :start_time, :img)", 
                 [
                     'title' => $session_data['title'],
-                    'genre' => $session_data['genre'],
-                    'date' => $session_data['date'],
+                    's_desc' => $session_data['desc'],
+                    'session_date' => $session_data['date'],
+                    'start_time' => $session_data['start_time'],
+                    'img' => $img
                 ]
             );
+
         }
+
+        
 
         return [
             'result' => $result,
@@ -52,6 +54,12 @@ class SessionModel extends BaseModel
         return $result;
     }
 
+    public function getEndSession(){
+        $end_session = $this->select("SELECT id FROM sessions ORDER BY id DESC");
+
+        return $end_session;
+    }
+
     public function getSessionById($id)
     {
         $result = null;
@@ -66,10 +74,12 @@ class SessionModel extends BaseModel
         return $result;
     }
 
-    public function edit($id, $session_data)
+    public function edit($id, $session_data, $img)
     {
         $result = false;
         $error_message = '';
+        
+        
 
         if(empty($id)){
             $error_message .= 'нет такого id<br>';
@@ -77,25 +87,38 @@ class SessionModel extends BaseModel
         if(empty($session_data['title'])){
             $error_message .= 'заголовок забыл, гений';
         }
-        if(empty($session_data['genre'])){
-            $error_message .= 'краткое описание забыл, гений';
-        }
         if(empty($session_data['date'])){
             $error_message .= 'описание забыл, гений';
         }
 
         if(empty($error_message)){
-            $result = $this->update(
-                "UPDATE sessions SET title = :title, 
-                genre = :genre, description = :description, date = :date
-                WHERE id = :id",
-                [
-                    'title' => $session_data['title'],
-                    'genre' => $session_data['genre'],
-                    'date' => $session_data['date'],
-                    'id' => $id
-                ]
-            );
+            if($img != null){
+                $img = base64_encode($img);
+                $result = $this->update(
+                    "UPDATE sessions SET title = :title, session_date = :session_date, s_desc = :s_desc, start_time = :start_time, img = :img
+                    WHERE id = :id",
+                    [
+                        'title' => $session_data['title'],
+                        'session_date' => $session_data['date'],
+                        's_desc' => $session_data['desc'],
+                        'start_time' => $session_data['start_time'],
+                        'img' => $img,
+                        'id' => $id
+                    ]
+                );
+            }else{
+                $result = $this->update(
+                    "UPDATE sessions SET title = :title, session_date = :session_date, s_desc = :s_desc, start_time = :start_time
+                    WHERE id = :id",
+                    [
+                        'title' => $session_data['title'],
+                        'session_date' => $session_data['date'],
+                        's_desc' => $session_data['desc'],
+                        'start_time' => $session_data['start_time'],
+                        'id' => $id
+                    ]
+                );
+            }
         }
 
         return [

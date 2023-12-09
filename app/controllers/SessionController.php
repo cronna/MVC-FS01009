@@ -40,11 +40,11 @@ class SessionController extends InitController
         $session = null;
         $error_message = '';
 
-        if(!empty($news_id)){
+        if(!empty($session_id)){
             $sessionModel = new SessionModel();
             $session = $sessionModel->getSessionById($session_id);
 
-            if(empty($news)){
+            if(empty($session)){
                 $error_message .= 'сессия не найдена<br>';
             }
         }else{
@@ -54,12 +54,17 @@ class SessionController extends InitController
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['btn_session_edit_form'])){
             $session_data = !empty($_POST['session']) ? $_POST['session'] : null;
 
-            if(!empty($news_data)){
-                $newsModel = new SessionModel();
-                $result_edit = $newsModel->edit($session_id, $session_data);
+            if(!empty($session_data)){
+                if(empty($_FILES['img']['tmp_name'])){
+                    $img = null;
+                }else{
+                    $img = file_get_contents($_FILES['img']['tmp_name']);
+                }
+                $sessionModel = new SessionModel();
+                $result_edit = $sessionModel->edit($session_id, $session_data, $img);
 
                 if($result_edit['result']){
-                    $this->redirect("/session/list");
+                    $this->redirect("/session/today");
                 }else{
                     $error_message .= $result_edit['error_message'];
                 }
@@ -85,11 +90,11 @@ class SessionController extends InitController
             $sessionModel = new SessionModel();
             $session = $sessionModel->getSessionById($session_id);
 
-            if(!empty($news)){
+            if(!empty($session)){
                 $result_delete = $sessionModel->deleteById($session_id);
 
                 if ($result_delete['result']){
-                    $this->redirect("/session/list");
+                    $this->redirect("/session/today");
                 }else{
                     $result_delete['error_message'];
                 }
@@ -108,19 +113,104 @@ class SessionController extends InitController
         ]);
     }
 
-    public function actionList()
+    public function actionToday()
     {
         $this->view->title = 'сеансы';
 
         $sessionModel  = new SessionModel();
         $session = $sessionModel->getListSession();
 
-        $this->render('list', [
+        $this->render('today', [
             'sidebar' => UserOperation::getMenuLink(),
             'session' => $session,
             'role' => UserOperation:: getRoleUser()
         ]);
     }
+
+    public function action2()
+    {
+        $this->view->title = 'сеансы';
+
+        $sessionModel  = new SessionModel();
+        $session = $sessionModel->getListSession();
+
+        $this->render('2', [
+            'sidebar' => UserOperation::getMenuLink(),
+            'session' => $session,
+            'role' => UserOperation:: getRoleUser()
+        ]);
+    }
+
+    public function action3()
+    {
+        $this->view->title = 'сеансы';
+
+        $sessionModel  = new SessionModel();
+        $session = $sessionModel->getListSession();
+
+        $this->render('3', [
+            'sidebar' => UserOperation::getMenuLink(),
+            'session' => $session,
+            'role' => UserOperation:: getRoleUser()
+        ]);
+    }
+
+    public function action4()
+    {
+        $this->view->title = 'сеансы';
+
+        $sessionModel  = new SessionModel();
+        $session = $sessionModel->getListSession();
+
+        $this->render('4', [
+            'sidebar' => UserOperation::getMenuLink(),
+            'session' => $session,
+            'role' => UserOperation:: getRoleUser()
+        ]);
+    }
+
+    public function action5()
+    {
+        $this->view->title = 'сеансы';
+
+        $sessionModel  = new SessionModel();
+        $session = $sessionModel->getListSession();
+
+        $this->render('5', [
+            'sidebar' => UserOperation::getMenuLink(),
+            'session' => $session,
+            'role' => UserOperation:: getRoleUser()
+        ]);
+    }
+
+    public function action6()
+    {
+        $this->view->title = 'сеансы';
+
+        $sessionModel  = new SessionModel();
+        $session = $sessionModel->getListSession();
+
+        $this->render('6', [
+            'sidebar' => UserOperation::getMenuLink(),
+            'session' => $session,
+            'role' => UserOperation:: getRoleUser()
+        ]);
+    }
+
+    public function action7()
+    {
+        $this->view->title = 'сеансы';
+
+        $sessionModel  = new SessionModel();
+        $session = $sessionModel->getListSession();
+
+        $this->render('7', [
+            'sidebar' => UserOperation::getMenuLink(),
+            'session' => $session,
+            'role' => UserOperation:: getRoleUser()
+        ]);
+    }
+    
 
     public function actionAdd()
     {
@@ -128,14 +218,14 @@ class SessionController extends InitController
         $error_message = '';
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['btn_session_add_form'])){
-            $session_data = !empty($_POST['session_add_form']) ? $_POST['session_add_form'] : null;
-            
+            $session_data = !empty($_POST['session']) ? $_POST['session'] : null;
+            $img = file_get_contents($_FILES['img']['tmp_name']);
             if(!empty($session_data)){
                 $sessionModel = new SessionModel();
-                $result_add = $sessionModel->add($session_data);
+                $result_add = $sessionModel->add($session_data, $img);
 
                 if($result_add['result']){
-                    $this->redirect('/session/list');
+                    $this->redirect('/session/today');
                 }else{
                     $error_message .= $result_add['error_message'];
                 }
