@@ -485,8 +485,24 @@ hr{
     background: rgb(17,24,39);
     width: 450px;
 }
-
-
+.users-content{
+    background: rgb(31, 41, 55);
+}
+.users-content > *{
+    background: rgb(31, 41, 55);
+}
+.users-content .news-block{
+    background: rgb(31,41,55);
+}
+.users-content .news-block > *{
+    background: rgb(31, 41, 55);
+}
+.news-item{
+    background: rgb(31, 41, 55);
+}
+.news-item > *{
+    background: rgb(31, 41, 55);
+}
 
 
 

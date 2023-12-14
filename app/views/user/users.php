@@ -5,6 +5,7 @@
 use app\lib\UserOperations;
 
 ?>
+
 <?php if (!empty($sidebar)) : ?>
     <header>
         <section class="container">
@@ -22,3 +23,29 @@ use app\lib\UserOperations;
         </section>
     </header>
 <?php endif; ?>
+<section class="container">
+<div class="main-content">
+                <div class="users-content">
+                    <h3 style="width: 100%; text-align:center; margin-bottom: -10px;" >пользователи</h2>
+                    <div class="news-block">
+                        <div class="links_box text-end">
+                        </div>
+                        <?php if (!empty($users)) : ?>
+                            <div class="news-list">
+                                <hr>
+                                <?php foreach ($users as $user) :?>
+                                    <div class="news-item">
+                                        <h3>
+                                            имя: <?=$user['username']?>
+                                                <a href="/user/delete/?user_id=<?=$user['id']?>" style="background: none;"><svg style="background: none;" class="out" width='30px' height='30px' fill='gray' viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-2{fill:none;}</style></defs><title/><g data-name="Layer 2" id="Layer_2"><path d="M20,29H12a5,5,0,0,1-5-5V12a1,1,0,0,1,2,0V24a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V12a1,1,0,0,1,2,0V24A5,5,0,0,1,20,29Z"/><path d="M26,9H6A1,1,0,0,1,6,7H26a1,1,0,0,1,0,2Z"/><path d="M20,9H12a1,1,0,0,1-1-1V6a3,3,0,0,1,3-3h4a3,3,0,0,1,3,3V8A1,1,0,0,1,20,9ZM13,7h6V6a1,1,0,0,0-1-1H14a1,1,0,0,0-1,1Z"/><path d="M14,23a1,1,0,0,1-1-1V15a1,1,0,0,1,2,0v7A1,1,0,0,1,14,23Z"/><path d="M18,23a1,1,0,0,1-1-1V15a1,1,0,0,1,2,0v7A1,1,0,0,1,18,23Z"/></g><g id="frame"><rect class="cls-2" height="32" width="32"/></g></svg></a>
+                                        </h3>
+                                        <div class="user-login">имя: <?=$user['login']?></div>
+                                        <div class="user-is_admin">администратор: <?=($user['is_admin'] === true) ? 'Да' : 'Нет'?></div>
+                                    </div>
+                                    <hr>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+</section>

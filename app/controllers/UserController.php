@@ -97,7 +97,7 @@ class UserController extends InitController
 
     public function actionProfile()
     {
-        $this->view->title = "Мой профиль";
+        $this->view->title = "профиль";
         $error_message = '';
 
         if ($_SERVER['REQUEST_METHOD'] === "POST" && !empty($_POST['btn_change_password_form'])) {
@@ -114,8 +114,15 @@ class UserController extends InitController
             }
         }
 
+        $userModel = new UserModel();
+        $user_id = $_SESSION['user']['id'];
+        $user_tickets = $userModel->getUserTickets($user_id);
+        $user = $userModel->getUserById($user_id);
+
         $this->render("profile", [
             'sidebar' => UserOperation::getMenuLink(),
+            'user_tickets' => $user_tickets,
+            'user' => $user,
             'error_message' => $error_message
         ]);
     }

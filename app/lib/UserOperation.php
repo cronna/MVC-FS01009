@@ -31,10 +31,6 @@ class UserOperation
             'link' => "/session/today"
         ];
         $list[] = [
-            'title' => 'новости',
-            'link' => '/posts/list'
-        ];
-        $list[] = [
             'title' => 'о нас',
             'link' => '/main/about'
         ];
@@ -42,7 +38,7 @@ class UserOperation
 
         if ($role === self::RoleAdmin) {
             $list[] = [
-                'title' => "Пользователи",
+                'title' => "пользователи",
                 'link' => "/user/users"
             ];
         }

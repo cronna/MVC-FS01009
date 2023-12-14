@@ -58,6 +58,29 @@ class UserModel extends BaseModel
         ];
     }
 
+    public function getUserTickets($user_id){
+        $result = null;
+        $user = $this->select("SELECT * FROM basket WHERE user_id = :id", [
+            'id' => $user_id
+        ]);
+        
+        $userTickets = [];
+
+        foreach($user as $item){
+            $userTicket = $this->select("SELECT * FROM sessions WHERE id = :id", [
+                'id' => $user['session_id']
+            ]);
+
+            $userTickets[] = $userTicket;
+        }
+
+        if(!empty($userTickets)){
+            $result = $userTickets;
+        }
+
+        return $result;
+    }
+
     public function getUserById($id)
     {
         $result = null;

@@ -238,4 +238,22 @@ class SessionController extends InitController
         ]);
     }
 
+    public function actionBuy(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['btn_buy_form'])){
+            $session_id = $_POST['buy'];
+
+            $sessionModel = new SessionModel();
+            $result_buy = $sessionModel->addTicket($session_id);
+
+            if($result_buy['result']){
+                $this->redirect('/user/profile');
+            }
+
+            $this->render('add_ticket', [
+                'sidebar' => UserOperation::getMenuLink(),
+                'session' => $session_id
+            ]);
+        }
+    }
+
 }

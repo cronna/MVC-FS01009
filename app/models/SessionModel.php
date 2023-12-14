@@ -35,6 +35,21 @@ class SessionModel extends BaseModel
         ];
     }
 
+    public function addTicket($session_id){
+        $result = false;
+        $user_id = $_SESSION['user']['id'];
+
+        $result = $this->insert("INSERT INTO basket (session_id, user_id)
+        VALUES(:session_id, :user_id)", [
+            'session_id' => $session_id,
+            'user_id' => $user_id
+        ]);
+
+        return [
+            'result' => $result
+        ];
+    }
+
     public function getListSession()
     {
         $result = 0;
