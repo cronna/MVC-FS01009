@@ -24,7 +24,7 @@ use app\lib\UserOperation;
     </header>
 <?php endif; ?>
 <section class="container">
-<form method="post" class="session-form" name="session_add_form" enctype="multipart/form-data">
+<form method="post" class="session-form" name="session" enctype="multipart/form-data">
     <h3 style="width: 100%; text-align:center; font-size: 35px;">новый сеанс</h3>
     <div class="session_add_form">
         <div class="alert alert-danger <?= !empty($error_message) ? null : 'hidden' ?>">

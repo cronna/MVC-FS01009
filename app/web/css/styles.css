@@ -431,6 +431,14 @@ textarea{
     background: rgb(30, 30, 255);
     margin-top: 200px;
     margin-left: 572px;
+    padding-top: 12px;
+    text-align: center;
+}
+.n-i-btn:hover{
+    color: white;
+}
+.del-btn{
+    background: red;
 }
 hr{
     border: none; 

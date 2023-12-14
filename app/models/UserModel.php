@@ -68,7 +68,7 @@ class UserModel extends BaseModel
 
         foreach($user as $item){
             $userTicket = $this->select("SELECT * FROM sessions WHERE id = :id", [
-                'id' => $user['session_id']
+                'id' => $user[0]['session_id']
             ]);
 
             $userTickets[] = $userTicket;

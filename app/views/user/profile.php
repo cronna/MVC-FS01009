@@ -1,5 +1,11 @@
 <?php
 /** @var array $sidebar - Меню */
+/** @var string $role - Список новостей */
+/** @var array $user_tickets - Роль пользователя */
+/** @var array $user - Роль пользователя */
+
+use app\lib\UserOperation;
+
 ?>
 <?php if (!empty($sidebar)) : ?>
     <header>
@@ -18,3 +24,38 @@
         </section>
     </header>
 <?php endif; ?>
+<section class="container s-list-container">
+    <div style="margin: 30px auto;"  class="main-content">
+        <div class="content-header">
+            <h2>мои билеты</h2>
+        </div>
+        <hr style="border: none; background:gray;">
+        <div class="l-c-content">
+            <?php if(!empty($user_tickets[0])): ?>
+                <div class="s-items">
+                    <?php foreach($user_tickets[0] as $item){ 
+                        if($item['session_date'] == date('Y-m-d')):
+                        ?>
+                        <div  class="n-item">
+                            <div class="n-i-img"><img src="data:image/jpeg;base64,<?=$item['img']?>" alt=""></div>
+                            <div class="item-content">
+                                <div class="i-c-header">
+                                    <h3><?= $item['title'] ?></h3>
+                                    <div class="time"><?= date('G:i', strtotime($item['start_time'])); ?></div>
+                                </div>
+                                <span><?= $item['s_desc'] ?></span>
+                                <a type="button" class='n-i-btn del-btn' href="/session/del?session_id=<?= $item['id'] ?>">вернуть билет</a>
+                            </div>
+                            <?php if($role === UserOperation::RoleAdmin): ?>
+                                <a class='a' href="/session/edit?session_id=<?= $item['id'] ?>"><svg xmlns="http://www.w3.org/2000/svg" width='30px' height='30px' fill='gray' viewBox="0 0 24 24"><path d="M21.707,5.565,18.435,2.293a1,1,0,0,0-1.414,0L3.93,15.384a.991.991,0,0,0-.242.39l-1.636,4.91A1,1,0,0,0,3,22a.987.987,0,0,0,.316-.052l4.91-1.636a.991.991,0,0,0,.39-.242L21.707,6.979A1,1,0,0,0,21.707,5.565ZM7.369,18.489l-2.788.93.93-2.788,8.943-8.944,1.859,1.859ZM17.728,8.132l-1.86-1.86,1.86-1.858,1.858,1.858Z"/></svg></a>
+                                <a class='a'  href="/session/delete?session_id=<?= $item['id'] ?>"><svg class="out" width='30px' height='30px' fill='gray' viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-2{fill:none;}</style></defs><title/><g data-name="Layer 2" id="Layer_2"><path d="M20,29H12a5,5,0,0,1-5-5V12a1,1,0,0,1,2,0V24a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V12a1,1,0,0,1,2,0V24A5,5,0,0,1,20,29Z"/><path d="M26,9H6A1,1,0,0,1,6,7H26a1,1,0,0,1,0,2Z"/><path d="M20,9H12a1,1,0,0,1-1-1V6a3,3,0,0,1,3-3h4a3,3,0,0,1,3,3V8A1,1,0,0,1,20,9ZM13,7h6V6a1,1,0,0,0-1-1H14a1,1,0,0,0-1,1Z"/><path d="M14,23a1,1,0,0,1-1-1V15a1,1,0,0,1,2,0v7A1,1,0,0,1,14,23Z"/><path d="M18,23a1,1,0,0,1-1-1V15a1,1,0,0,1,2,0v7A1,1,0,0,1,18,23Z"/></g><g id="frame"><rect class="cls-2" height="32" width="32"/></g></svg></a>
+                            <?php endif ?>
+                            </div>
+                        
+                        <hr>
+                    <?php endif; } ?>
+                </div>
+            <?php endif ?>
+        </div>
+    </div>
+</section>

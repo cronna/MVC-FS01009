@@ -239,21 +239,36 @@ class SessionController extends InitController
     }
 
     public function actionBuy(){
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['btn_buy_form'])){
-            $session_id = $_POST['buy'];
+            $session_id = !empty($_GET['session_id']) ? $_GET['session_id'] : null;
 
             $sessionModel = new SessionModel();
             $result_buy = $sessionModel->addTicket($session_id);
-
             if($result_buy['result']){
                 $this->redirect('/user/profile');
+            }else{
+                echo 'error';
             }
 
             $this->render('add_ticket', [
-                'sidebar' => UserOperation::getMenuLink(),
-                'session' => $session_id
+                'sidebar' => UserOperation::getMenuLink()
             ]);
+    }
+
+    public function actionDel(){
+        $session_id = !empty($_GET['session_id']) ? $_GET['session_id'] : null;
+
+        $sessionModel = new SessionModel();
+        $result_del = $sessionModel->delTicket($session_id);
+
+        if($result_del['result']){
+            $this->redirect('/user/profile');
+        }else{
+            echo 'error';
         }
+
+        $this->render('add_ticket', [
+            'sidebar' => UserOperation::getMenuLink()
+        ]);
     }
 
 }

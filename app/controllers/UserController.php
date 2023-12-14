@@ -123,7 +123,8 @@ class UserController extends InitController
             'sidebar' => UserOperation::getMenuLink(),
             'user_tickets' => $user_tickets,
             'user' => $user,
-            'error_message' => $error_message
+            'error_message' => $error_message,
+            'role' => UserOperation::getRoleUser()
         ]);
     }
 

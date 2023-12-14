@@ -26,9 +26,7 @@ class SessionModel extends BaseModel
             );
 
         }
-
         
-
         return [
             'result' => $result,
             'error_message' => $error_message
@@ -44,6 +42,20 @@ class SessionModel extends BaseModel
             'session_id' => $session_id,
             'user_id' => $user_id
         ]);
+
+        return [
+            'result' => $result
+        ];
+    }
+
+    public function delTicket($session_id)
+    {
+        $result = false;
+
+            $result = $this->delete("DELETE FROM basket WHERE session_id = :id", 
+            [
+                'id' => $session_id
+            ]);
 
         return [
             'result' => $result
