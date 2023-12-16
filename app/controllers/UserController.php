@@ -41,16 +41,16 @@ class UserController extends InitController
 
     public function actionDelete()
     {
-        $this->view->title = 'удаление новости';
+        $this->view->title = 'удаление юзера';
         $user_id = !empty($_GET['user_id']) ? $_GET['user_id'] : null;
         $user = null;
         $error_message = '';
 
         if(!empty($user_id)){
             $userModel = new userModel();
-            $news = $userModel->getUserById($user_id);
+            $user = $userModel->getUserById($user_id);
 
-            if(!empty($news)){
+            if(!empty($user)){
                 $result_delete = $userModel->deleteById($user_id);
 
                 if ($result_delete['result']){

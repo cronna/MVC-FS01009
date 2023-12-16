@@ -14,7 +14,7 @@ class SessionController extends InitController
             'access' => [
                 'rules' => [
                     [
-                        'actions' => ['list'],
+                        'actions' => ['today', '2', '3', '4', '5', '6', '7'],
                         'roles' => [UserOperation::RoleUser, UserOperation::RoleAdmin],
                         'matchCallback' => function() {
                             $this->redirect('/user/login');
@@ -24,7 +24,7 @@ class SessionController extends InitController
                         'actions' => ['add', 'edit', 'delete'],
                         'roles' => [UserOperation::RoleAdmin],
                         'matchCallback' => function() {
-                            $this->redirect('/session/list');
+                            $this->redirect('/session/today');
                         }
                     ]
                 ]

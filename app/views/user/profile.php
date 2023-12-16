@@ -24,8 +24,58 @@ use app\lib\UserOperation;
         </section>
     </header>
 <?php endif; ?>
+<section class="container">
+    <div class="main-content" style="width:1073px; margin: 20px auto;">
+        <div class="content-header">
+            <h2>профиль</h2>
+            <a href="/user/logout" style="background: red; position:relative; margin:0; width: 150px; margin-top:5px;" class="del-btn n-i-btn">выйти</a>
+        </div>
+        <hr style="border: none; background:gray;">
+        <form method="post" name="change_password">
+                                    <div class="input_box">
+                                        <label for="field_current_password">текущий пароль:</label>
+                                        <input type="password"
+                                               name="current_password"
+                                               id="field_current_password"
+                                               class="form-control"
+                                               placeholder="Введите текущий пароль"
+                                        >
+                                    </div>
+
+                                    <div class="input_box">
+                                        <label for="field_new_password">новый пароль:</label>
+                                        <input type="password"
+                                               name="new_password"
+                                               id="field_new_password"
+                                               class="form-control"
+                                               placeholder="Введите новый пароль"
+                                        >
+                                    </div>
+
+                                    <div class="input_box">
+                                        <label for="field_confirm_new_password">повторите новый пароль:</label>
+                                        <input type="password"
+                                               name="confirm_new_password"
+                                               id="field_confirm_new_password"
+                                               class="form-control"
+                                               placeholder="Повторите новый пароль"
+                                        >
+                                    </div>
+
+                                    <div class="button_box">
+                                        <button type="submit"
+                                                name="btn_change_password_form"
+                                                id="btnChangePasswordForm"
+                                                class="btn btn-primary"
+                                                value="1"
+                                        >Сменить пароль
+                                        </button>
+                                    </div>
+                                </form>
+    </div>
+</section>
 <section class="container s-list-container">
-    <div style="margin: 30px auto;"  class="main-content">
+    <div style="margin: 10px auto;"  class="main-content">
         <div class="content-header">
             <h2>мои билеты</h2>
         </div>

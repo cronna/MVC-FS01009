@@ -133,7 +133,7 @@ textarea{
 
 .auth_block {
     padding: 60px 15px 30px;
-    margin: 0 auto;
+    margin: 70px auto;
     max-width: 380px;
 }
 
@@ -145,15 +145,19 @@ textarea{
 }
 .log-label{
     color: white;
+    background: rgb(31, 41, 55);
 }
 
 
 .auth_form {
     padding: 17px 12px;
+    background: rgb(31, 41, 55);
+    border-radius: 10px;
 }
 
 .input_box {
     padding-bottom: 17px;
+    background: rgb(31, 41, 55);
 }
 
 .input_box label {
@@ -162,9 +166,10 @@ textarea{
     line-height: 20px;
     padding-bottom: 5px;
     width: 100%;
+    background: rgb(31, 41, 55);
 }
 .input_box input{
-    background:rgb(31,41,55);
+    background: rgb(17,24,39);
     border: none;
     color: white;
     border-radius: 5px;
@@ -180,6 +185,7 @@ textarea{
 }
 
 .input_box .form-control {
+    background: rgb(17,24,39);
     border-radius: 5px;
     font-size: 16px;
     line-height: 18px;

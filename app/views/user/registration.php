@@ -4,9 +4,9 @@
 <div class="page">
     <div class="container">
         <div class="auth_block">
-            <h1 class="title">Регистрация</h1>
             <form name="auth_form" method="post">
                 <div class="auth_form">
+                    <h1 style="background: rgb(31, 41, 55);" class="title">Регистрация</h1>
 
                     <div class="alert alert-danger <?= !empty($error_message) ? null : 'hidden' ?>">
                         <?= !empty($error_message) ? $error_message : null ?>

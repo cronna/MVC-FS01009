@@ -1,9 +1,10 @@
 <div class="page">
     <div class="container">
         <div class="auth_block">
-            <h1 class="title">Авторизация</h1>
+            
             <form name="auth_form" method="post">
                 <div class="auth_form">
+                    <h1 style="background: rgb(31, 41, 55);" class="title">Авторизация</h1>
                     <div class="alert alert-danger <?= !empty($error_message) ? null : 'hidden' ?>">
                         <?= !empty($error_message) ? $error_message : null ?>
                     </div>
@@ -26,8 +27,8 @@
                         >
                     </div>
 
-                    <div class="links_box">
-                        <a href="/user/registration">Регистрация</a>
+                    <div class="links_box" style="background: rgb(31, 41, 55);">
+                        <a style="background: rgb(31, 41, 55);" href="/user/registration">Регистрация</a>
                     </div>
                     <div class="button_box">
                         <button type="submit"
